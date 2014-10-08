@@ -27,7 +27,7 @@ int getData(ifstream & inputFile, string & charName, string & className, int & x
 
 //Enemies
 string adj[] = {"spooky","scary","big","sick","large","small","tall","fat","skinny","hungry","dying","strong","black","white","orange","red","yellow","green","blue","purple","grey","smart"};
-string enemies[] = {"monster","skeleton","goblin","cow","warrior","zombie","imp"};
+string enemies[] = {"skeleton","goblin","cow","warrior","zombie","imp","kobold","dwarf","elf","gnome","ooze","gremlin","orc","fairy","ghoul","wight","vampire","wolf","werewolf","wraith","wizard","warlock","lizard","snake","spider","rat","tiger","cougar","squid","frog","minotaur","barbarian","bandit","thief","golem","elemental","wisp","treant","hobbit","lion","gorilla","crab","knight","ogre","troll","turtle","slime","succubus","demon","ghost","midget","dragon","bat","mutant","sorcerer","sorceress","witch","drunkard","cannibal","man-eating plant","worm","alligator","crocodile","scorpion","beetle","monk","salesman","naga","moth","shade","genie","giant","parasite","dolphin","angel","mage","archon","assassin","bugbear","centaur","chimera","cockatrice","devil","ghast","gnome","gnoll","griffon","gargoyle","boar","wolverine","bear","dryad","harpy","kraken","gorgon","hag","hydra","hobgoblin","hippogriff","halfling","homunculus","satyr","leopard","lich","wasp","mantis","manticore","medusa","mummy","merfolk","mimic","nightmare","nymph","titan","troglodyte","triton","tarrasque","worg","owlbear","sphinx","spectre","rhino","homeless child"};
 
 //Items
 string wepAdj[] = {"big","chaotic","large","small","short","strong","iron","black","white","orange","red","yellow","green","blue","purple","grey","steel","mithril","crystal","diamond","gold","silver","copper","stone"};
