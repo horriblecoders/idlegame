@@ -1,29 +1,6 @@
-#include <iostream>
-#include <string>
-#include <stdlib.h>
-#include <time.h>
-#include <array>
-#include <fstream>
-#include <iomanip>
-
-//Horrible cross platform clear screen
-#if defined(_WIN32)
-	#define COMMAND "cls" //Clears a windows console screen
-	#include <windows.h>
-#else
-	#define COMMAND "clear" //Clears a linux console screen
-	#include <chrono>
-	#include <thread>
-#endif
-#define clear() system( COMMAND )
+#include "idlegame.h"
 
 using namespace std;
-
-//Prototypes
-void sleep(int seconds);
-void saveData(ofstream & outputFile, string & charName, string & className, int & xp, int & gold, int & level, int & nextLevel, string & weapon);
-int getData(ifstream & inputFile, string & charName, string & className, int & xp, int & gold, int & level, int & nextLevel, string & weapon);
-
 
 //Enemies
 string adj[] = {"spooky","scary","big","sick","large","small","tall","fat","skinny","hungry","dying","strong","black","white","orange","red","yellow","green","blue","purple","grey","smart","stupid","fire","water","ice","wind","cold","angry","sad","insane","depressed","bleeding","evil","unholy","holy","crying","weeping","obese","massive","elder","ancient","old","young","baby","floppy","attractive","ugly","smelly","happy","chunky","grotesque","squishy","filthy","crimson","undead","ghostly","phantom","creepy","metal","tired","energetic","fast","slow","powerful","strong","weak","mighty","magnificent","courageous","cowardly","mini","round","limbless","armless","legless","headless","glowing","shiny","dancing","crawling","flying","magical","forest","swamp","cave","sewer","smoldering","burning","lonely","poor","starving","intelligent","soggy","hairy","bald","naked","female","male","droopy","grand","greater","lesser","muscular","wild","crazed","lazy","bruised","toothless","enraged","carnivorous","vengeful","aqua","prime","master","pale","enflamed","frozen","air","rock","stone","crippled"};
@@ -35,6 +12,11 @@ string weapons[] = {"bucket","longsword","shortsword","dagger","hatchet","battle
 
 int main()
 {
+	//
+	string title = "Idlegame";
+	string version = "0.0.2";
+	
+	
 	//Start
 	srand (time(NULL)); //Seed
 	ifstream inputFile;
@@ -47,6 +29,7 @@ int main()
 	string charName = "Default";
 	string weapon = "Fists";
 	int enemyLevel = rand() % (level+9) + 1;
+	titleScreen(title, version);
 	
 	//Attempt to load game
 	if (!getData(inputFile, charName, className, xp, gold, level, nextLevel, weapon))
@@ -105,51 +88,4 @@ int main()
 	}
 	while(1);
 	return 0;
-}
-
-int getData(ifstream & inputFile, string & charName, string & className, int & xp, int & gold, int & level, int & nextLevel, string & weapon)
-{
-	inputFile.open("idlegame.sav");
-	if(!inputFile)
-	{                   
-		cout << "No save file found!" << endl;	
-		sleep(2);
-		clear();
-		return 0;
-	}
-	
-	string adjective = "default";
-	inputFile >> charName;
-	inputFile >> className;
-	inputFile >> level;
-	inputFile >> nextLevel;
-	inputFile >> xp;
-	inputFile >> gold;
-	inputFile >> adjective;
-	inputFile >> weapon;
-	weapon = adjective + " " + weapon;
-	return 1;
-}
-
-void saveData(ofstream & outputFile, string & charName, string & className, int & xp, int & gold, int & level, int & nextLevel, string & weapon)
-{	
-	outputFile.open("idlegame.sav");
-	if(!outputFile)
-	{
-		cout << "Failed to create savegame!";
-		sleep(5);
-		clear();
-	}
-	outputFile << charName << " " <<className << " " << level << " " << nextLevel << " " << xp << " " << gold << " " << weapon << endl;
-	outputFile.close();
-	
-}
-
-void sleep(int seconds)
-{
-	#if defined(_WIN32)
-		Sleep(seconds * 1000);
-	#else
-		std::this_thread::sleep_for(std::chrono::milliseconds(seconds * 1000));
-	#endif
 }
