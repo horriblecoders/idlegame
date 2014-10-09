@@ -46,7 +46,6 @@ int main()
 		cout << "Int: " << c.intellect << endl;
 		cout << "Cha: " << c.cha << endl;
 		cout << "Magic: " << c.mag << endl;
-		cout << loopCount << endl; //DELETE
 		cout << getTask(c.str,c.dex,c.intellect,c.cha,c.mag,c.strxp,c.dexxp,c.intxp,c.chaxp,c.magxp,c.gold, c.totalxp, seconds) << endl;
 		sleep(seconds);
 		if (c.totalxp >= (pow(2,c.level)*10)) //Main Level Up
