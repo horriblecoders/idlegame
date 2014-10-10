@@ -39,6 +39,7 @@ int main()
 		cout << "Class: " << c.className << endl;
 		cout << "Level: " << c.level << endl;
 		cout << "Total XP: " << c.totalxp << endl;
+		cout << "XP to Level: " << ((pow(2,c.level)*10)-c.totalxp) << endl;
 		cout << "Weapon: " << c.weapon << endl;
 		cout << "Gold: " << c.gold << endl;
 		cout << "Str: " << c.str << endl;
