@@ -2,12 +2,12 @@
 #define IDLEGAME_H
 
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <stdlib.h>
 #include <time.h>
 #include <array>
 #include <fstream>
-#include <iomanip>
 #include <math.h>
 
 //Horrible cross platform clear screen
@@ -80,7 +80,8 @@ string getTask(int & str,int & dex,int & intellect,int & cha,int & mag,int & str
 	}
 
 	int taskLevel = rand() % (level+9) + 1;
-	string sTaskLevel = to_string(taskLevel);
+	string sTaskLevel = static_cast<ostringstream*>( &(ostringstream() << taskLevel) )->str();
+	//string sTaskLevel = to_string(taskLevel); MinGW fails to compile this.
 
 	if (stat == "str")
 	{
