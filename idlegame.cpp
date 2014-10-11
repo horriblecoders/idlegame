@@ -6,7 +6,7 @@ int main()
 {	
 	//
 	string title = "Idlegame";
-	string version = "0.0.4";
+	string version = "0.0.5";
 	srand (time(NULL)); //Seed
 	ifstream inputFile;
 	ofstream outputFile;
@@ -26,7 +26,8 @@ int main()
 		getline(cin, c.className);
 		clear();
 	}
-
+	c.setSpecial();
+	c.saveData(outputFile);
 	do
 	{
 		if (loopCount >= 10)
@@ -47,7 +48,7 @@ int main()
 		cout << "Dexterity: " << c.dex << endl;
 		cout << "Intellect: " << c.intellect << endl;
 		cout << "Charisma: " << c.cha << endl;
-		cout << getTask(c.str,c.dex,c.intellect,c.cha,c.mag,c.strxp,c.dexxp,c.intxp,c.chaxp,c.magxp,c.gold, c.totalxp, seconds) << endl;
+		cout << c.getTask(seconds) << endl;
 		sleep(seconds);
 		if (c.totalxp >= (pow(2,c.level)*10)) //Main Level Up
 		{
