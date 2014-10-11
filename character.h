@@ -17,18 +17,18 @@ class Character
 		string weapon = "Fists";
 		string special = "default"; //will be used in the future
 		int level = 1;
-		int gold = 10;
+		long gold = 10;
 		int str = 0;
-		int strxp = 0;
+		long strxp = 0;
 		int intellect = 0;
-		int intxp = 0;
+		long intxp = 0;
 		int cha = 0;
-		int chaxp = 0;
+		long chaxp = 0;
 		int dex = 0;
-		int dexxp = 0;
+		long dexxp = 0;
 		int mag = 0;
-		int magxp = 0;
-		int totalxp = 0;
+		long magxp = 0;
+		long totalxp = 0;
 };
 
 int Character::getData(ifstream & inputFile)
