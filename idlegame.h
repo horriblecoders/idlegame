@@ -9,6 +9,7 @@
 #include <array>
 #include <fstream>
 #include <math.h>
+#include <iomanip>
 
 //Horrible cross platform clear screen
 #if defined(_WIN32)
@@ -27,8 +28,8 @@ using namespace std;
 void sleep(int seconds);
 void titleScreen(string title, string version);
 bool levelCheck(int statxp, int & statLevel);
-string getTask(int & str,int & dex,int & intellect,int & cha,int & strxp,int & dexxp,int & intxp,int & chaxp,int & gold,int & totalxp, int & seconds);
-void buyWep(string & weapon, int & gold);
+string getTask(int & str,int & dex,int & intellect,int & cha,long & strxp,long & dexxp,long & intxp,long & chaxp,long & gold,long & totalxp, int & seconds);
+void buyWep(string & weapon, long & gold);
 void levelUp(int & level, int & nextLevel, string weapon, int gold);
 
 //Functions
@@ -48,7 +49,7 @@ bool levelCheck(int statxp, int & statLevel)
 	
 }
 
-string getTask(int & str,int & dex,int & intellect,int & cha,int & mag,int & strxp,int & dexxp,int & intxp,int & chaxp,int & magxp,int & gold, int & totalxp, int & seconds)
+string getTask(int & str,int & dex,int & intellect,int & cha,int & mag,long & strxp,long & dexxp,long & intxp,long & chaxp,long & magxp,long & gold, long & totalxp, int & seconds)
 {
 	//Arrays
 	const string adj[] = {"spooky","scary","big","sick","large","small","tall","fat","skinny","hungry","dying","strong","black","white","orange","red","yellow","green","blue","purple","grey","smart","stupid","fire","water","ice","wind","cold","angry","sad","insane","depressed","bleeding","evil","unholy","holy","crying","weeping","obese","massive","elder","ancient","old","young","baby","floppy","attractive","ugly","smelly","happy","chunky","grotesque","squishy","filthy","crimson","undead","ghostly","phantom","creepy","metal","tired","energetic","fast","slow","powerful","strong","weak","mighty","magnificent","courageous","cowardly","mini","round","limbless","armless","legless","headless","glowing","shiny","dancing","crawling","flying","magical","forest","swamp","cave","sewer","smoldering","burning","lonely","poor","starving","intelligent","soggy","hairy","bald","naked","female","male","droopy","grand","greater","lesser","muscular","wild","crazed","lazy","bruised","toothless","enraged","carnivorous","vengeful","aqua","prime","master","pale","enflamed","frozen","air","rock","stone","crippled","homeless"};
@@ -233,7 +234,7 @@ void titleScreen(string title, string version)
 	
 }
 
-void buyWep(string & weapon, int & gold)
+void buyWep(string & weapon, long & gold)
 {
 	//Items
 	const string wepAdj[] = {"big","chaotic","large","small","short","strong","iron","black","white","orange","red","yellow","green","blue","purple","grey","steel","mithril","crystal","diamond","gold","silver","copper","stone","steel","floppy","sharp","brass","godly","demonic","legendary","little","ruby","emerald","sapphire","unbreakable","fragile","wood","wet","water","hot","burning","flame","thunder","lightning","cold","frozen","icy","wind","void","dark","broken","scratched","dirty","rusty","bent","dented","perfect","molten","pointy","dull","blunt","corrosive","ancient","old","rune","holy","unholy","golden","burnt","tasty","corrupted","glittering","shiny","fancy","expensive","mighty","powerful","The Magnificent","cheap","military","royal","bloody","deadly","brutal","adamantium","flawless","weak","angry","glowing","smelly","edible","phantom","slimy","sticky","jelly","moldy","poisonous","happy","sad","depressed","flat","stubby","stinky","light","heavy","invisible"};
