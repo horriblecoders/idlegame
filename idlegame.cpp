@@ -38,10 +38,10 @@ int main()
 		cout << "Race: " << c.raceName << endl;
 		cout << "Class: " << c.className << endl;
 		cout << "Level: " << c.level << endl;
-		cout << "Total XP: " << c.totalxp << endl;
-		cout << "XP to Level: " << ((pow(2,c.level)*10)-c.totalxp) << endl;
+		cout << "Total XP: " << fixed << setprecision(0) << c.totalxp << endl;
+		cout << "XP to Level: " << fixed << setprecision(0) << ((pow(2,c.level)*10)-c.totalxp) << endl;
 		cout << "Weapon: " << c.weapon << endl;
-		cout << "Gold: " << c.gold << endl;
+		cout << "Gold: " << fixed << setprecision(0) << c.gold << endl;
 		cout << "Strength: " << c.str << endl;
 		cout << "Magic: " << c.mag << endl;
 		cout << "Dexterity: " << c.dex << endl;
