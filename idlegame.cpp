@@ -6,7 +6,7 @@ int main()
 {	
 	//
 	string title = "Idlegame";
-	string version = "0.0.3";
+	string version = "0.0.4";
 	srand (time(NULL)); //Seed
 	ifstream inputFile;
 	ofstream outputFile;
@@ -42,11 +42,11 @@ int main()
 		cout << "XP to Level: " << ((pow(2,c.level)*10)-c.totalxp) << endl;
 		cout << "Weapon: " << c.weapon << endl;
 		cout << "Gold: " << c.gold << endl;
-		cout << "Str: " << c.str << endl;
-		cout << "Dex: " << c.dex << endl;
-		cout << "Int: " << c.intellect << endl;
-		cout << "Cha: " << c.cha << endl;
+		cout << "Strength: " << c.str << endl;
 		cout << "Magic: " << c.mag << endl;
+		cout << "Dexterity: " << c.dex << endl;
+		cout << "Intellect: " << c.intellect << endl;
+		cout << "Charisma: " << c.cha << endl;
 		cout << getTask(c.str,c.dex,c.intellect,c.cha,c.mag,c.strxp,c.dexxp,c.intxp,c.chaxp,c.magxp,c.gold, c.totalxp, seconds) << endl;
 		sleep(seconds);
 		if (c.totalxp >= (pow(2,c.level)*10)) //Main Level Up
