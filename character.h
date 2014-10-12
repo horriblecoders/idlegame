@@ -12,7 +12,9 @@ class Character
 		void lvlUp(string skill);
 		string getTask(int & seconds);
 		void setSpecial();
+		void displayStats();
 		void bonusxp(string stat, int taskLevel);
+		
 		//This will be private in the future!
 		string charName = "Default";
 		string raceName = "Human";		
@@ -148,6 +150,8 @@ void Character::lvlUp(string skill)
 			cha++;
 	else if (skill == "dex")
 			dex++;
+	else if (skill == "mag")
+			mag++;
 }
 
 
@@ -179,6 +183,23 @@ void Character::saveData(ofstream & outputFile)
 	outputFile << magxp << endl;
 	outputFile << totalxp << endl;
 	outputFile.close();
+}
+
+void Character::displayStats()
+{
+	cout << "Name: " << charName << endl;
+	cout << "Race: " << raceName << endl;
+	cout << "Class: " << className << endl;
+	cout << "Level: " << level << endl;
+	cout << "Total XP: " << fixed << setprecision(0) << totalxp << endl;
+	cout << "XP to Level: " << fixed << setprecision(0) << ((pow(2,level)*10)-totalxp) << endl;
+	cout << "Weapon: " << weapon << endl;
+	cout << "Gold: " << fixed << setprecision(0) << gold << endl;
+	cout << "Strength: " << str << endl;
+	cout << "Magic: " << mag << endl;
+	cout << "Dexterity: " << dex << endl;
+	cout << "Intellect: " << intellect << endl;
+	cout << "Charisma: " << cha << endl;
 }
 
 string Character::getTask(int & seconds)
@@ -344,7 +365,7 @@ string Character::getTask(int & seconds)
 	}
 	
 	totalxp = totalxp + taskLevel;
-	bonusxp(stat, taskLevel);//THIS LINE
+	bonusxp(stat, taskLevel);
 	seconds = taskLevel - level;
 	if (seconds < 1)
 	{
