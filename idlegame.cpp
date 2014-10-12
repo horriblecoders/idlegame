@@ -35,19 +35,7 @@ int main()
 			c.saveData(outputFile);
 			loopCount = 0;
 		}
-		cout << "Name: " << c.charName << endl;
-		cout << "Race: " << c.raceName << endl;
-		cout << "Class: " << c.className << endl;
-		cout << "Level: " << c.level << endl;
-		cout << "Total XP: " << fixed << setprecision(0) << c.totalxp << endl;
-		cout << "XP to Level: " << fixed << setprecision(0) << ((pow(2,c.level)*10)-c.totalxp) << endl;
-		cout << "Weapon: " << c.weapon << endl;
-		cout << "Gold: " << fixed << setprecision(0) << c.gold << endl;
-		cout << "Strength: " << c.str << endl;
-		cout << "Magic: " << c.mag << endl;
-		cout << "Dexterity: " << c.dex << endl;
-		cout << "Intellect: " << c.intellect << endl;
-		cout << "Charisma: " << c.cha << endl;
+		c.displayStats();
 		cout << c.getTask(seconds) << endl;
 		sleep(seconds);
 		if (c.totalxp >= (pow(2,c.level)*10)) //Main Level Up
