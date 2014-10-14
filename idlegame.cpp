@@ -6,7 +6,7 @@ int main()
 {	
 	//
 	string title = "Idlegame";
-	string version = "0.0.5";
+	string version = "0.0.6";
 	srand (time(NULL)); //Seed
 	ifstream inputFile;
 	ofstream outputFile;
@@ -16,16 +16,7 @@ int main()
 	titleScreen(title, version);
 	
 	//Attempt to load game
-	if(!c.getData(inputFile))
-	{
-		cout << "Enter your hero's name: ";
-		getline(cin,c.charName);
-		cout << "Enter your hero's race: ";
-		getline(cin,c.raceName);
-		cout << "Enter your hero's class: ";
-		getline(cin, c.className);
-		clear();
-	}
+	c.getData(inputFile);
 	c.setSpecial();
 	c.saveData(outputFile);
 	do
@@ -38,10 +29,10 @@ int main()
 		c.displayStats();
 		cout << c.getTask(seconds) << endl;
 		sleep(seconds);
-		if (c.totalxp >= (pow(2,c.level)*10)) //Main Level Up
+		if (c.getTotalxp() >= (pow(2,c.getLevel())*10)) //Main Level Up
 		{
-			levelUp(c.level, c.weapon, c.gold);
-			buyWep(c.weapon, c.gold);
+			c.levelUp();
+			c.buyWep();
 			c.saveData(outputFile);
 			clear();
 		}
